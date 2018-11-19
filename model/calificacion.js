@@ -4,10 +4,10 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
  
 var CalificacionSchema = Schema({
-    _id: number,
-    idAlumno:number,
-    idExamen:number,
-    nota:number,
+    _id: Number,
+    idAlumno:Number,
+    idExamen:Number,
+    nota:Number,
     fechaExamen: Date
 });
  

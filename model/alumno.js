@@ -4,8 +4,8 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
  
 var AlumnoSchema = Schema({
-    _id: number,
-    usuario:string,
+    _id: Number,
+    usuario:String,
     nombres: {nombre: String, apellido:String},
     genero: String,
     fechaNacimiento:Date,
