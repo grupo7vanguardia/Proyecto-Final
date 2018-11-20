@@ -1,14 +1,15 @@
 var mongoose = require('mongoose');
  
-
 var Schema = mongoose.Schema;
  
 var CalificacionSchema = Schema({
-    _id: Number,
-    idAlumno:Number,
-    idExamen:Number,
-    nota:Number,
-    fechaExamen: Date
+    
+    alum: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'Alumno',
+    },
+    nota: Number
+
 });
  
 // Exportamos el modelo para usarlo en otros ficheros
