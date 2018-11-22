@@ -23,9 +23,8 @@ var CursoSchema = Schema({
     examen: {
         type: mongoose.Schema.ObjectId,
         ref: 'Examen',
-    },
+    }
 });
  
-// Exportamos el modelo para usarlo en otros ficheros
 module.exports = mongoose.model('Curso', CursoSchema);
 

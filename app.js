@@ -4,8 +4,24 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const mongoose = require('mongoose');
+const mongoconfig = require('./config/database');
+
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var apiRouter = require('./routes/api');
+
+// Conexion a MongoDB
+mongoose.connect(mongoconfig.database, {useNewUrlParser: true});
+
+// Mensaje de Conexion Exitosa
+mongoose.connection.on('connected', () => {
+    console.log ('Conexion exitosa a ' + mongoconfig.database);
+});
+
+// Mensaje de Conexion Fallida
+mongoose.connection.on('error', (err) => {
+    console.log ('Error de Conexion! El error es el siguiente: ' + err);
+});
 
 var app = express();
 
@@ -20,7 +36,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

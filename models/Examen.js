@@ -3,7 +3,6 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
  
-///REVISAR
 var ExamenSchema = Schema({
     preguntas: {
         type: [mongoose.Schema.ObjectId],
@@ -15,5 +14,4 @@ var ExamenSchema = Schema({
     },
 });
  
-// Exportamos el modelo para usarlo en otros ficheros
 module.exports = mongoose.model('Examen', ExamenSchema);

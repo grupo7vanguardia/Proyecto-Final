@@ -10,9 +10,11 @@ var CalificacionSchema = Schema({
     },
     nota: {
         type: Number
+    },
+    fecha_realizado: {
+        type: Date
     }
 
 });
  
-// Exportamos el modelo para usarlo en otros ficheros
 module.exports = mongoose.model('Calificacion', CalificacionSchema);

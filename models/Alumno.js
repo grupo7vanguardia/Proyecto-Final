@@ -24,9 +24,6 @@ var AlumnoSchema = Schema({
     },
     correo: {
         type: String
-    },
-    fecha_nacimiento: {
-        type: Date
     }
 });
  

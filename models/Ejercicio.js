@@ -6,18 +6,13 @@ var EjercicioSchema = Schema({
     
     pregunta: {
         type: String
-    }, 
-    índice: {
-        type: Number
     },
     respuesta: {
-        type: String
+        type: [String]
     },
-    respuestaCorrecta: {
+    correcta: {
         type: Number
     }
-
 });
  
-// Exportamos el modelo para usarlo en otros ficheros
 module.exports = mongoose.model('Ejercicio', EjercicioSchema);
