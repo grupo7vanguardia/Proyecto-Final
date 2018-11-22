@@ -3,12 +3,27 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
  
 var AlumnoSchema = Schema({
-    usuario: String,
-    password: String,
-    nombre: String, 
-    apellido: String,
-    genero: String,
-    correo: String
+    usuario: {
+        type: String
+    },
+    password: {
+        type: String
+    },
+    nombre: {
+        type: String
+    }, 
+    apellido: {
+        type: String
+    },
+    genero: {
+        type: String
+    },
+    correo: {
+        type: String
+    },
+    fecha_nacimiento: {
+        type: Date
+    }
 });
  
 module.exports = mongoose.model('Alumno', AlumnoSchema);

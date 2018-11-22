@@ -2,20 +2,27 @@ var mongoose = require('mongoose');
  
 var Schema = mongoose.Schema;
  
-///REVISAR
 var CursoSchema = Schema({
 
-    titulo: String,
-    orden: Number,
+    titulo: {  
+        type: String
+    },
+    orden: {
+        type: Number
+    },
     integrantes: {
         type: [mongoose.Schema.ObjectId],
         ref: 'Alumno',
     },
-    urlImagen: String, 
-    urlVideo:String, 
-    ejercicio: {
+    urlImagen: { 
+        type: String
+    }, 
+    urlVideo: {
+        type: String
+    },
+    examen: {
         type: mongoose.Schema.ObjectId,
-        ref: 'Ejercicio',
+        ref: 'Examen',
     },
 });
  

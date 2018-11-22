@@ -4,10 +4,18 @@ var Schema = mongoose.Schema;
  
 var EjercicioSchema = Schema({
     
-    pregunta: String, 
-    índice: Number,
-    respuesta: String,
-    respuestaCorrecta: Number
+    pregunta: {
+        type: String
+    }, 
+    índice: {
+        type: Number
+    },
+    respuesta: {
+        type: String
+    },
+    respuestaCorrecta: {
+        type: Number
+    }
 
 });
  

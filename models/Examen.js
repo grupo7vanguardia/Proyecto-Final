@@ -5,9 +5,14 @@ var Schema = mongoose.Schema;
  
 ///REVISAR
 var ExamenSchema = Schema({
-    _id: Number,
-    idCurso:Number,
-    Preguntas: {pregunta:String, opciones:{indice:Number,respuesta:String},respuestaCorrecta:Number}
+    preguntas: {
+        type: [mongoose.Schema.ObjectId],
+        ref: 'Ejercicio',
+    },
+    calificacion: {
+        type: [mongoose.Schema.ObjectId],
+        ref: 'Calificacion',
+    },
 });
  
 // Exportamos el modelo para usarlo en otros ficheros

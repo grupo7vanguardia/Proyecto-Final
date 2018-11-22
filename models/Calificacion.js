@@ -4,11 +4,13 @@ var Schema = mongoose.Schema;
  
 var CalificacionSchema = Schema({
     
-    alum: {
+    alumno: {
         type: mongoose.Schema.ObjectId,
         ref: 'Alumno',
     },
-    nota: Number
+    nota: {
+        type: Number
+    }
 
 });
  
