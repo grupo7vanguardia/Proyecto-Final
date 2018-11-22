@@ -12,6 +12,10 @@ var AlumnoSchema = Schema({
     nombre: {
         type: String
     }, 
+    nivel:{
+        type: Number,
+        default: 0
+    },
     apellido: {
         type: String
     },
