@@ -79,20 +79,23 @@ exports.login = function(req,res,next){
 
                 res.json({
                     mensaje: 'Bienvenido ' + alumno.nombre + ' ' + alumno.apellido + '!',
-                    alumno: alumno
+                    alumno: alumno,
+                    logged: true
                 });
 
             } else {
 
                 res.json({
-                    mensaje: 'Contraseña incorrecta.'
+                    mensaje: 'Contraseña incorrecta.',
+                    logged: false
                 });
 
             }
         }else{
 
             res.json({
-                mensaje: 'Alumno no registrado.'
+                mensaje: 'Alumno no registrado.',
+                logged: false
             });
 
         }
