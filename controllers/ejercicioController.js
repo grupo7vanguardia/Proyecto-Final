@@ -4,7 +4,11 @@ exports.getEjercicios = function (req, res, next) {
 
     Ejercicio.find(function(err, ejercicios){
         if(err){console.log(err)}
-        res.send(ejercicios);
+
+        res.json({
+            ejercicios: ejercicios
+        });
+
     });
 
 }
@@ -13,14 +17,16 @@ exports.getEjercicio = function (req, res, next) {
 
     Ejercicio.findById(req.params._id, function(err, ejercicio){
         if(err){console.log(err)}
-        res.send(ejercicio);
+        
+        res.json({
+            ejercicio: ejercicio
+        });
+
     });
 
 }
 
 exports.agregarEjercicio = function (req, res, next) {
-
-    console.log(req.body.respuesta);
 
     let newEjercicio = new Ejercicio({
       pregunta: req.body.pregunta,
@@ -32,7 +38,11 @@ exports.agregarEjercicio = function (req, res, next) {
         if (err) {
             return next(err);
         }
-        res.send('Ejercicio creado.');
+
+        res.json({
+            mensaje: 'Ejercicio Creado.'
+        });
+
       });
 }
 
