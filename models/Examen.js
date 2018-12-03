@@ -5,12 +5,10 @@ var Schema = mongoose.Schema;
  
 var ExamenSchema = Schema({
     preguntas: {
-        type: [mongoose.Schema.ObjectId],
-        ref: 'Ejercicio',
+        type: Object
     },
     calificacion: {
-        type: [mongoose.Schema.ObjectId],
-        ref: 'Calificacion',
+        type: Object
     },
 });
  

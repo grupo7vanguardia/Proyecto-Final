@@ -12,7 +12,8 @@ var CalificacionSchema = Schema({
         type: Number
     },
     fecha_realizado: {
-        type: Date
+        type: Date,
+        default: Date.now()
     }
 
 });

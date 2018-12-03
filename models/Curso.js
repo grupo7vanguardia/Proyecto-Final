@@ -7,12 +7,11 @@ var CursoSchema = Schema({
     titulo: {  
         type: String
     },
-    orden: {
+    nivel: {
         type: Number
     },
     integrantes: {
-        type: [mongoose.Schema.ObjectId],
-        ref: 'Alumno',
+        type: Object
     },
     urlImagen: { 
         type: String

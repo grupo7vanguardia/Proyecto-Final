@@ -20,13 +20,21 @@ exports.agregarAlumno = function (req, res, next) {
             res.send(err);
         }
         if (alumno) {
-            res.send('El Alumno ya existe y es este: ' + alumno);
+
+            res.json({
+                mensaje: 'El alumno ya existe.'
+            });
+
         }else{
             newAlumno.save(function (err) {
                 if (err) {
                     return next(err);
                 }
-                res.send('Alumno Creado.');
+
+                res.json({
+                    mensaje: 'Alumno creado.'
+                });
+
             });
         }
     });
@@ -36,7 +44,11 @@ exports.getAlumnos = function(req,res,next){
     
     Alumno.find(function(err, alumnos){
         if(err){console.log(err)}
-        res.send(alumnos);
+
+        res.json({
+            alumnos: alumnos
+        });
+
     });
     
 }
@@ -47,7 +59,11 @@ exports.getAlumno = function(req,res,next){
         if (err){
             console.log(err);
         }
-        res.send(alumno);
+
+        res.json({
+            alumno: alumno
+        });
+        
     });
 
 }
@@ -55,16 +71,30 @@ exports.getAlumno = function(req,res,next){
 exports.login = function(req,res,next){
 
     Alumno.findOne({usuario : req.body.usuario}, function(err, alumno){
+        
         if(err){console.log(err)}
 
         if (alumno){
             if(bcrypt.compareSync(req.body.password, alumno.password)) {
-                res.send('Bienvenido ' + alumno.nombre + ' ' + alumno.apellido + '!');
+
+                res.json({
+                    mensaje: 'Bienvenido ' + alumno.nombre + ' ' + alumno.apellido + '!',
+                    alumno: alumno
+                });
+
             } else {
-                res.send('Usuario o Contraseña Incorrectos.')
+
+                res.json({
+                    mensaje: 'Contraseña incorrecta.'
+                });
+
             }
         }else{
-            res.send('El alumno no existe.')
+
+            res.json({
+                mensaje: 'Alumno no registrado.'
+            });
+
         }
 
     });
