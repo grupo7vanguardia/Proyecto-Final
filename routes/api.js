@@ -10,6 +10,7 @@ router.get('/alumnos', alumnoController.getAlumnos);
 router.get('/alumnos/:_id', alumnoController.getAlumno);
 router.post('/alumnos' , alumnoController.agregarAlumno);
 router.post('/login' , alumnoController.login);
+router.put('/alumnos/subirnivel', alumnoController.subirNivel);
 
 router.get('/ejercicios', ejercicioController.getEjercicios);
 router.get('/ejercicios/:id', ejercicioController.getEjercicio);

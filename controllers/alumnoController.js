@@ -103,3 +103,28 @@ exports.login = function(req,res,next){
     });
 
 }
+
+exports.subirNivel = function(req,res,next){
+
+    Alumno.findById(req.body._id, function (err, alumno) {
+        
+        if (alumno){
+            alumno.nivel += 1;
+    
+            alumno.save(function (err) {
+                if(err) {
+                    console.error('ERROR!');
+                }
+                res.json({
+                    mensaje : "Has subido de nivel!",
+                    alumno : alumno
+                })
+            });
+        }else{
+            res.json({
+                mensaje: "NO EXISTE EL ALUMNO"
+            })
+        }
+        
+    });
+}
