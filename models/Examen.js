@@ -10,6 +10,9 @@ var ExamenSchema = Schema({
     calificacion: {
         type: Object
     },
+    nivel: {
+        type: Number
+    }
 });
  
 module.exports = mongoose.model('Examen', ExamenSchema);

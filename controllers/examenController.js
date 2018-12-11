@@ -31,7 +31,8 @@ exports.agregarExamen = function (req, res, next) {
 
     let newExamen = new Examen({
         preguntas: [],
-        calificacion: []
+        calificacion: [],
+        nivel: req.params.nivel
     });
 
     newExamen.save(function (err) {
