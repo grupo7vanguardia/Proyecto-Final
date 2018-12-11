@@ -26,14 +26,9 @@ mongoose.connection.on('error', (err) => {
 
 var app = express();
 
-// Serve only the static files form the dist directory
-// Replace the '/dist/<to_your_project_name>'
-app.use(express.static(__dirname + '/Angular-Front/dist/client'));
-
-app.get('*', function(req,res) {
-  // Replace the '/dist/<to_your_project_name>/index.html'
-  res.sendFile(path.join(__dirname + '/Angular-Front/dist/client/index.html'));
-});
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
 
 app.use(logger('dev'));
 app.use(express.json());
